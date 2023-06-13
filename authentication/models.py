@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
+from simple_history.models import HistoricalRecords
 
 
 class CustomUserManager(BaseUserManager):
@@ -50,6 +51,7 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     other_name = models.CharField(max_length=100, blank=True, null=True)
     email_confirmed = models.BooleanField(default=False)
+    history = HistoricalRecords()
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
