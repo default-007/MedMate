@@ -6,3 +6,7 @@ class Institution(models.Model):
     name = models.CharField(
         max_length=10,
     )
+
+
+class Schedule(models.Model):
+    day = models.CharField(max_length=50)
